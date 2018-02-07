@@ -271,6 +271,8 @@ In another tab (`⌘ t` in Terminal), `webpack --watch`
 
 Open your browser & go to **localhost:3000**. You should see the text `Client-rendered`.
 
+**[NEXT STEPS](https://github.com/English3000/Intro-to-Coding/tree/user-auth)**
+
 > ### Rails Commands
 >`rails db:create` initializes your test & development databases
 >
