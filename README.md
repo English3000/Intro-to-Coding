@@ -127,15 +127,15 @@ Post-curriculum, looking at other languages and technologies' documentation, the
 
 Open **Terminal** _(or your preferred Command Line Interface, e.g. Powershell on Windows)_.
 
-> Install **[Ruby](https://www.ruby-lang.org/en/downloads/)** _(_`brew install ruby` _for Macs with_ **[Homebrew](https://brew.sh/)**_)_ and **[Node.js](https://nodejs.org/en/download/)**.
+>- [ ] Install **[Ruby](https://www.ruby-lang.org/en/downloads/)** _(_`brew install ruby` _for Macs with_ **[Homebrew](https://brew.sh/)**_)_ and **[Node.js](https://nodejs.org/en/download/)**.
 
-`rails new Project --database=postgresql --webpack=react` to create a new Rails project.
+- [ ] `rails new Project --database=postgresql --webpack=react` to create a new Rails project.
 
 **NOTE**
 
 Rails is an MVC (model-view-controller) framework _(more on this later)_. Open the **/app** folder and you'll see a **/controllers**, **/models**, and **/views** folder. There's also an **/assets** folder for images, JavaScript files, and stylesheets (and more--Rails comes with a lot of capabilities, not all of which we'll use).
 
-> Install and setup **[Postgres](https://postgresapp.com/)** and **[Atom](https://atom.io/)**.
+>- [ ]  Install and setup **[Postgres](https://postgresapp.com/)** and **[Atom](https://atom.io/)**.
 >
 > ### Atom Setup
 >
@@ -156,7 +156,8 @@ linter-flow
 
 `cd Project && atom .`
 
-Add to **Gemfile**,
+- [ ] Add to **Gemfile**,
+
 ```ruby
 gem 'rails_12factor'
 gem 'react-rails'
@@ -187,21 +188,22 @@ end
 
 Just like Rails is a folder structure with special capabilities, the Gemfile allows you to install gems created by Rails users to utilize additional capabilities.
 
-`bundle update`
+- [ ] `bundle update`
 
-`rails g react:install` (if you get a message saying you need to install Yarn, follow the URL)
+- [ ] `rails g react:install` (if you get a message saying you need to install Yarn, follow the URL)
 
-In **./app/assets/javascripts/application.js**, add `//= require react`
+- [ ] In **./app/assets/javascripts/application.js**, add `//= require react`
 
-`npm install --save babel-core babel-loader babel-polyfill babel-preset-env lodash react-redux react-router-dom redux redux-thunk webpack`
+- [ ] `npm install --save babel-core babel-loader babel-polyfill babel-preset-env lodash react-redux react-router-dom redux redux-thunk webpack`
 
-`npm install --save-dev enzyme enzyme-adapter-react-16 jest redux-logger redux-mock-store`
+- [ ] `npm install --save-dev enzyme enzyme-adapter-react-16 jest redux-logger redux-mock-store`
 
 **NOTE**
 
 Just like Rails has gems, React has packages, which are stored in **package.json**
 
-Add to **package.json**,
+- [ ] Add to **package.json**,
+
 ```json
 "main": "webpack.config.js",
 "scripts": {
@@ -218,7 +220,7 @@ Add to **package.json**,
 
 `atom webpack.config.js`
 
-Copy & paste (refer to this project's **webpack.config.js**).
+- [ ] Copy & paste (refer to this project's **webpack.config.js**).
 
 > ### GitHub Setup
 >
@@ -234,13 +236,13 @@ Copy & paste (refer to this project's **webpack.config.js**).
 >
 >***NOTE:*** Whenever you make a very minor change, `git add -A && git commit -m '...' && git push`
 
-`mkdir frontend` (at root-level of directory)
+- [ ] `mkdir frontend` (at root-level of directory)
 
 `cd frontend && atom index.js`
 
-Copy & paste (refer, in **/frontend**, to this project's **index.js**).
+- [ ] Copy & paste (refer, in **/frontend**, to this project's **index.js**).
 
-In **../app/views/layouts/application.html.erb**, add `<%= javascript_pack_tag 'application' %>` and wrap **yield** in a `div`:
+- [ ] In **../app/views/layouts/application.html.erb**, add `<%= javascript_pack_tag 'application' %>` and wrap **yield** in a `div`:
 
 ```erb
 <div id='replace-with-js'>
@@ -248,27 +250,27 @@ In **../app/views/layouts/application.html.erb**, add `<%= javascript_pack_tag '
 </div>
 ```
 
-`atom setup.js` Copy & paste.
+- [ ] `atom setup.js` Copy & paste.
 
-`atom store.js` Copy & paste.
+- [ ] `atom store.js` Copy & paste.
 
-`atom App.jsx` Copy & paste.
+- [ ] `atom App.jsx` Copy & paste.
 
-`mkdir reducers && cd reducers`
+- [ ] `mkdir reducers && cd reducers`
 
-`atom root.js && echo "export default () => ({});" >> root.js` (just a placeholder, for now)
+- [ ] `atom root.js && echo "export default () => ({});" >> root.js` (just a placeholder, for now)
 
-`cd .. && mkdir pages && cd pages`
+- [ ] `cd .. && mkdir pages && cd pages`
 
-`atom Home.jsx` Copy & paste.
+- [ ] `atom Home.jsx` Copy & paste.
 
-`rails g react:component Home --es6`
+- [ ] `rails g react:component Home --es6`
 
-`⌘ t` in Atom, type Home, select the file in **app/javascript/pages/Home.js** _(see [react-rails](https://github.com/reactjs/react-rails#component-generator) for details)_, copy & paste.
+- [ ] `⌘ t` in Atom, type Home, select the file in **app/javascript/pages/Home.js** _(see [react-rails](https://github.com/reactjs/react-rails#component-generator) for details)_, copy & paste.
 
-In **../config/routes.rb**, add `root to: 'application#home'` (sets the default route)
+- [ ] In **../config/routes.rb**, add `root to: 'application#home'` (sets the default route)
 
-In **../app/controllers/application_controller.rb**, add:
+- [ ] In **../app/controllers/application_controller.rb**, add:
 
 ```ruby
 def home
@@ -277,7 +279,7 @@ end
 
 (This defines the route **home** in the ApplicationController, which is where our newly set default route points to.)
 
-In **/app/views** create an /**application** folder. In that folder, create a file **home.html.erb**. Copy & paste. (Now our route has a file to render.)
+- [ ] In **/app/views** create an /**application** folder. In that folder, create a file **home.html.erb**. Copy & paste. (Now our route has a file to render.)
 
 `rails s` (if it fails, `yarn install` & try again)
 
@@ -294,8 +296,12 @@ You should see the text `Client-rendered`. _(The server-rendered page is replace
 >
 >`rails g model Name foreign_key:integer <datafield>:<datatype>` creates a model in `./app/models` & corresponding migration in `./db/migrations`
 >
+>`rails d model Name` deletes the model
+>
 >`rails db:migrate` modifies your databases
 >
 >`rails db:rollback` undoes your last set of migrations
 >
 >`rails g controller Api::Names` creates a controller in `./app/controllers/api`
+>
+>`rails d controller Api::Names` deletes the controller
