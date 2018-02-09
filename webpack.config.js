@@ -1,3 +1,4 @@
+//imports
 const path = require("path");
 const webpack = require("webpack");
 
@@ -5,7 +6,7 @@ let plugins = [];
 
 let devPlugins = [];
 let prodPlugins = [
-  new webpack.DefinePlugin({
+  new webpack.DefinePlugin({ //DefinePlugin was imported from "webpack"
     'process.env': {
       'NODE_ENV': JSON.stringify('production')
     }
@@ -24,6 +25,7 @@ plugins = plugins.concat(
 module.exports = {
   context: __dirname,
   // Running Webpack executes index.js (in ./frontend).
+  // explain babel-polyfill
   entry: ["babel-polyfill", "./frontend/index.js"],
   // Webpack creates (bundles) a tree of files that require one another,
   //  bundle.js (in ./app/assets/javascripts).

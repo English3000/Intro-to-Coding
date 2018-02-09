@@ -1,13 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import HomePageContainer from './components/HomePageContainer';
+import Home from './pages/Home';
 
 export default () => (
   <div>
     <Switch>
-      <Route exact path='/' component={HomePageContainer}/>
+      {/* If the URL path is '/', show the home page. */}
+      <Route exact path='/' component={Home}/>
     </Switch>
   </div>
 );
-
-//If the the path is '/', show the home page.

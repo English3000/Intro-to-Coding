@@ -129,7 +129,11 @@ Open **Terminal** _(or your preferred Command Line Interface, e.g. Powershell on
 
 > Install **[Ruby](https://www.ruby-lang.org/en/downloads/)** _(_`brew install ruby` _for Macs with_ **[Homebrew](https://brew.sh/)**_)_ and **[Node.js](https://nodejs.org/en/download/)**.
 
-`rails new Project --database=postgresql --webpack=react`
+`rails new Project --database=postgresql --webpack=react` to create a new Rails project.
+
+**NOTE**
+
+Rails is an MVC (model-view-controller) framework _(more on this later)_. Open the **/app** folder and you'll see a **/controllers**, **/models**, and **/views** folder. There's also an **/assets** folder for images, JavaScript files, and stylesheets (and more--Rails comes with a lot of capabilities, not all of which we'll use).
 
 > Install and setup **[Postgres](https://postgresapp.com/)** and **[Atom](https://atom.io/)**.
 >
@@ -179,6 +183,10 @@ group :development do
 end
 ```
 
+**NOTE**
+
+Just like Rails is a folder structure with special capabilities, the Gemfile allows you to install gems created by Rails users to utilize additional capabilities.
+
 `bundle update`
 
 `rails g react:install` (if you get a message saying you need to install Yarn, follow the URL)
@@ -189,11 +197,15 @@ In **./app/assets/javascripts/application.js**, add `//= require react`
 
 `npm install --save-dev enzyme enzyme-adapter-react-16 jest redux-logger redux-mock-store`
 
+**NOTE**
+
+Just like Rails has gems, React has packages, which are stored in **package.json**
+
 Add to **package.json**,
 ```json
 "main": "webpack.config.js",
 "scripts": {
-  "start": "npm install",
+  "start": "npm install && yarn install",
   "postinstall": "webpack",
   "test": "jest",
   "test:watch": "npm test --watch"
@@ -226,7 +238,7 @@ Copy & paste (refer to this project's **webpack.config.js**).
 
 `cd frontend && atom index.js`
 
-Copy & paste (refer, in **frontend**, to this project's **index.js**).
+Copy & paste (refer, in **/frontend**, to this project's **index.js**).
 
 In **../app/views/layouts/application.html.erb**, add `<%= javascript_pack_tag 'application' %>` and wrap **yield** in a `div`:
 
@@ -244,17 +256,17 @@ In **../app/views/layouts/application.html.erb**, add `<%= javascript_pack_tag '
 
 `mkdir reducers && cd reducers`
 
-`atom root.js && echo "export default () => ({});" >> root.js`
+`atom root.js && echo "export default () => ({});" >> root.js` (just a placeholder, for now)
 
-`cd .. && mkdir components && cd components`
+`cd .. && mkdir pages && cd pages`
 
-`atom HomePageContainer.jsx` Copy & paste.
+`atom Home.jsx` Copy & paste.
 
-`rails g react:component HomePageContainer --es6`
+`rails g react:component Home --es6`
 
-`⌘ t` in Atom, type HomePageContainer, select the file in **app/javascript/components/HomePageContainer.js** _(see [react-rails](https://github.com/reactjs/react-rails#component-generator) for details)_, copy & paste.
+`⌘ t` in Atom, type Home, select the file in **app/javascript/pages/Home.js** _(see [react-rails](https://github.com/reactjs/react-rails#component-generator) for details)_, copy & paste.
 
-In **../config/routes.rb**, add `root to: 'application#home'` _--sets the default route `/`_
+In **../config/routes.rb**, add `root to: 'application#home'` (sets the default route)
 
 In **../app/controllers/application_controller.rb**, add:
 
@@ -263,13 +275,15 @@ def home
 end
 ```
 
-In **app/views** create an /**application** folder. In that folder, create a file **home.html.erb**. Copy & paste.
+(This defines the route **home** in the ApplicationController, which is where our newly set default route points to.)
 
-`rails s`
+In **/app/views** create an /**application** folder. In that folder, create a file **home.html.erb**. Copy & paste. (Now our route has a file to render.)
+
+`rails s` (if it fails, `yarn install` & try again)
 
 In another tab (`⌘ t` in Terminal), `webpack --watch`
 
-Open your browser & go to **localhost:3000**. You should see the text `Client-rendered`.
+Open your browser & go to **localhost:3000**. You should see the text `Client-rendered`. (The server-rendered page is replaced by the client-rendered one.)
 
 **[NEXT STEPS](https://github.com/English3000/Intro-to-Coding/tree/user-auth#user-authentication-ruby-on-rails)**
 

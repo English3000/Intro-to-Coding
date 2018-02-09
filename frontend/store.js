@@ -9,6 +9,7 @@ if (process.env.NODE_ENV !== 'production') {
   middlewares.push(logger);
 }
 
+//This function creates a store.
 export default (preloadedState = {}) => createStore(
   rootReducer,
   preloadedState,
