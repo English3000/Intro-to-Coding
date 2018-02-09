@@ -283,7 +283,9 @@ In **/app/views** create an /**application** folder. In that folder, create a fi
 
 In another tab (`⌘ t` in Terminal), `webpack --watch`
 
-Open your browser & go to **localhost:3000**. You should see the text `Client-rendered`. (The server-rendered page is replaced by the client-rendered one.)
+Open your browser & go to **localhost:3000**. _(For now, we are using our computer's local host, instead of Heroku, to test our project. 3000 is a port number of the host. A hosting server has multiple ports, meaning it can host different projects at different ports.)_
+
+You should see the text `Client-rendered`. _(The server-rendered page is replaced by the client-rendered one.)_
 
 **[NEXT STEPS](https://github.com/English3000/Intro-to-Coding/tree/user-auth#user-authentication-ruby-on-rails)**
 
